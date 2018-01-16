@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Kura Programı v1.0</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  .top{
+	background:rgba(59,182,233,1.00);
+	width:100px;
+	height:100px;
+	line-height:100px;
+	border-radius:50%;
+	text-align:center;
+	font-size:1.5em;
+	font-weight:500;
+	margin:5px;
+	display:inline-block;
+}
+  </style>
+</head>
+<script type="text/javascript">
+
+function kura()
+{
+	var min= Number($("#min").val());
+	var max= Number($("#max").val());
+	var adet= Number($("#adet").val());	
+	if(min<max && adet<=max)
+	{
+		var toplar=[],sayi,sayac=1;	
+		while(sayac <= adet)
+		{
+			sayi=Math.floor(Math.random()*max)+(min);
+			if(toplar.indexOf(sayi)==-1)
+			{
+				toplar.push(sayi);
+				if(sayac<=((adet)/2))
+				{				
+				$("<div class='top'>").appendTo($(".sag")).html(sayi);	
+				}
+				else if(sayac>((adet)/2))
+				{			
+					$("<div class='top'>").appendTo($(".sol")).html(sayi);	
+				}							
+				sayac++;		
+			}
+		}		
+	}
+	else{ alert("Başlangıç Değeri ve Rastgele Sayı Adeti, Bitiş Değerinden küçük veya eşit olmalıdır. Lütfen Kontrol edip tekrar deneyiniz.") }
+}
+
+</script>
+<body>
+
+<div class="container">
+  <div class="jumbotron alert alert-success">
+    <h2>Kura Programı v1.0 (BETA)</h2>      
+    <p>Bu program ile basit bir kur çekme sistemi oluşturabilirsiniz.</p>
+	<form name="kura_form" class="form-inline">
+		<input data-toggle="tooltip" data-placement="bottom" title="Başlangıç değerini girin" class="form-control" required type="number" min="1" id="min" name="min"/>
+		<input data-toggle="tooltip" data-placement="bottom" title="Bitiş değerini girin" class="form-control" required type="number" min="1" max="100" id="max" name="max"/>
+		<input data-toggle="tooltip" data-placement="bottom" title="Rastgele kaç sayı istediğinizi girin" class="form-control" required type="number" min="1" max="100" id="adet" name="adet"/>
+		<input class="btn btn-success" id="cek" onclick="kura();" type="button" name="cek" value="Kurayı Başlat"/>
+		<input class="btn btn-info" type="button" onclick="location.href='index.html'" value="Sıfırla"/>
+	</form>
+  </div>
+  
+  
+   <div class="row">
+    <div class="sol col-md-6">
+        <p class="alert alert-info">1.grup</p>
+	</div>
+    <div class="sag col-md-6">
+      <p class="alert alert-danger">2.grup</p>
+    </div>
+  </div>     
+</div>
+
+<script>
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();
+});
+</script>
+</body>
+</html>
