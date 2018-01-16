@@ -1,4 +1,1 @@
-"# kura" 
-"# kura" 
-"# kura" 
-"# kura" 
+Basit kura çekme programı
