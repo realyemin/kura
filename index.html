@@ -48,7 +48,9 @@ function kura()
 				}							
 				sayac++;		
 			}
-		}		
+		}	
+$("<div style='height:5px; background:red'>").appendTo($(".sag")).html("");
+$("<div style='height:5px; background:red'>").appendTo($(".sol")).html("");			
 	}
 	else{ alert("Başlangıç Değeri ve Rastgele Sayı Adeti, Bitiş Değerinden küçük veya eşit olmalıdır. Lütfen Kontrol edip tekrar deneyiniz.") }
 }
@@ -58,7 +60,7 @@ function kura()
 
 <div class="container">
   <div class="jumbotron alert alert-success">
-    <h2>Kura Programı v1.0 (BETA)</h2>      
+    <h2>Kura Programı v1.0 (BETA)</h2>Kodlayan E.KÖMÜRCÜ      
     <p>Bu program ile basit bir kur çekme sistemi oluşturabilirsiniz.</p>
 	<form name="kura_form" class="form-inline">
 		<input data-toggle="tooltip" data-placement="bottom" title="Başlangıç değerini girin" class="form-control" required type="number" min="1" id="min" name="min"/>
